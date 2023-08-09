@@ -22,15 +22,15 @@ use tauri::{Manager, WindowBuilder, RunEvent, SystemTray, SystemTrayEvent, AppHa
 
 use utils::{sign_zome_call, ZOOM_ON_SCROLL};
 
-const APP_NAME: &str = "replace-me"; // name of the app. Can be changed without breaking your app.
-const APP_ID: &str = "replace-me"; // App id used to install your app in the Holochain conductor - can be the same as APP_NAME. Changing this means a breaking change to your app.
-pub const WINDOW_TITLE: &str = "replace-me"; // Title of the window
+const APP_NAME: &str = "mewsfeed"; // name of the app. Can be changed without breaking your app.
+const APP_ID: &str = "mewsfeed"; // App id used to install your app in the Holochain conductor - can be the same as APP_NAME. Changing this means a breaking change to your app.
+pub const WINDOW_TITLE: &str = "mewsfeed"; // Title of the window
 pub const WINDOW_WIDTH: f64 = 1400.0; // Default window width when the app is opened
 pub const WINDOW_HEIGHT: f64 = 880.0; // Default window height when the app is opened
 const PASSWORD: &str = "pass"; // Password to the lair keystore
-const NETWORK_SEED: Option<String> = None;  // replace-me (optional): Depending on your application, you may want to put a network seed here or
+const NETWORK_SEED: Option<String> = None;  // mewsfeed (optional): Depending on your application, you may want to put a network seed here or
                                             // read it secretly from an environment variable. If so, replace `None` with `Some(String::from([your network seed here]))`
-const SIGNALING_SERVER: &str = "wss://signal.holo.host"; // replace-me (optional): Change the signaling server if you want
+const SIGNALING_SERVER: &str = "wss://signal.holo.host"; // mewsfeed (optional): Change the signaling server if you want
 
 
 mod errors;
@@ -155,7 +155,7 @@ pub async fn launch(
     }]);
 
     let mut network_config = KitsuneP2pConfig::default();
-    network_config.bootstrap_service = Some(url2::url2!("https://bootstrap.holo.host")); // replace-me (optional) -- change bootstrap server URL here if desired
+    network_config.bootstrap_service = Some(url2::url2!("https://bootstrap.holo.host")); // mewsfeed (optional) -- change bootstrap server URL here if desired
     network_config.transport_pool.push(TransportConfig::WebRTC {
         signal_url: SIGNALING_SERVER.into(),
     });
@@ -206,8 +206,8 @@ pub async fn install_app_if_necessary(
         let agent_key = admin_ws.generate_agent_pub_key().await
             .map_err(|e| AppError::ConductorApiError(e))?;
 
-        // replace-me --- replace the path with the correct path to your .happ file here
-        let app_bundle = AppBundle::decode(include_bytes!("../../pouch/replace-me.happ"))
+        // mewsfeed --- replace the path with the correct path to your .happ file here
+        let app_bundle = AppBundle::decode(include_bytes!("../../pouch/mewsfeed.happ"))
             .map_err(|e| AppError::AppBundleError(e))?;
 
         admin_ws
