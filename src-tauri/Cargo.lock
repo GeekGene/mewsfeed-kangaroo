@@ -2939,16 +2939,19 @@ dependencies = [
  "log",
  "log4rs",
  "mr_bundle",
+ "nanoid 0.4.0",
  "opener",
  "portpicker",
  "semver 1.0.17",
  "serde",
  "serde_json",
  "sodoken",
+ "symlink",
  "tauri",
  "tauri-build",
  "tauri-plugin-single-instance",
  "thiserror",
+ "url 2.4.0",
  "url2",
 ]
 
@@ -2987,8 +2990,9 @@ dependencies = [
 
 [[package]]
 name = "holochain_client"
-version = "0.4.0"
-source = "git+https://github.com/holochain/holochain-client-rust?branch=holochain-0.2.1#2c1c5b28d8fe876d94e71a4899e2ebd41440e8dc"
+version = "0.4.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "97f51dc982527dca0459316b69ef94c0a1a9f72d8673bb18cc7fef760111bfac"
 dependencies = [
  "again",
  "anyhow",
@@ -7556,6 +7560,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "symlink"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a7973cce6668464ea31f176d85b13c7ab3bba2cb3b77a2ed26abd7801688010a"
+
+[[package]]
 name = "syn"
 version = "1.0.109"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -7747,6 +7757,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7fbe522898e35407a8e60dc3870f7579fea2fc262a6a6072eccdd37ae1e1d91e"
 dependencies = [
  "anyhow",
+ "clap 3.2.25",
  "cocoa",
  "dirs-next",
  "embed_plist",
