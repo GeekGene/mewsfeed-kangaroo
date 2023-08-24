@@ -1,6 +1,6 @@
 [package]
 name = "holochain-kangaroo" # mewsfeed
-version = "0.10.0" # mewsfeed -- Choose wisely, see "Note on Versioning" in README
+version = "0.10.1" # mewsfeed -- Choose wisely, see "Note on Versioning" in README
 description = "A Tauri App"
 authors = ["you"]
 license = ""
