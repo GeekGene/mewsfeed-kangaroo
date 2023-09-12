@@ -7,7 +7,7 @@
   },
   "package": {
     "productName": "mewsfeed",
-    "version": "0.10.1"
+    "version": "0.11.0"
   },
   "tauri": {
     "allowlist": {
@@ -21,7 +21,7 @@
       }
     },
     "cli": {
-      "description": "Running replace-me from the command line",
+      "description": "Running mewsfeed from the command line",
       "args": [
         {
           "name": "profile",
