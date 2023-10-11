@@ -22,9 +22,15 @@ This repository let's you easily convert your Holochain app into a standalone ta
 
 7. Set all the version numbers in `package.json`, `src-tauri/Cargo.toml` and `src-tauri/tauri.conf.json`. The verison number in `src-tauri/Cargo.toml` is part of the filesystem storage logic, **read the [note on versioning](#note-on-versioning)**
 
+8. Copy `.env.example` to `.env` and fill in values
+
 8. Build the app locally by running `npm run kangaroo`
 
 ## Publish cross-platform Binaries
+
+Add env variables to github secrets
+
+1. Copy the contents of your `.env` file into Github secrets, under the key `ENV_FILE`
 
 To publish cross-platform binaries (not code-signed), follow these steps:
 
