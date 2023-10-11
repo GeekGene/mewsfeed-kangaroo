@@ -23,7 +23,7 @@ use tauri::{Manager, WindowBuilder, RunEvent, SystemTray, SystemTrayEvent, AppHa
 
 use utils::{sign_zome_call, ZOOM_ON_SCROLL, create_and_apply_lair_symlink};
 use commands::{profile::{get_existing_profiles, set_active_profile, set_profile_network_seed, get_active_profile, open_profile_settings}, restart::restart};
-
+use dotenv::dotenv;
 
 const APP_NAME: &str = "mewsfeed"; // name of the app. Can be changed without breaking your app.
 const APP_ID: &str = "mewsfeed"; // App id used to install your app in the Holochain conductor - can be the same as APP_NAME. Changing this means a breaking change to your app.
@@ -47,7 +47,8 @@ mod commands;
 
 
 fn main() {
-
+    dotenv().ok();
+    
     let builder_result = tauri::Builder::default()
 
         .on_menu_event(|event| handle_menu_event(event.menu_item_id(), event.window()))
