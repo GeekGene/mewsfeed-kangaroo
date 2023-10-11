@@ -1,7 +1,7 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-use std::{collections::HashMap, sync::Arc, path::PathBuf};
+use std::{collections::HashMap, sync::Arc, path::PathBuf, env};
 
 use crate::errors::{AppError, AppResult};
 use filesystem::{AppFileSystem, Profile};
@@ -23,7 +23,6 @@ use tauri::{Manager, WindowBuilder, RunEvent, SystemTray, SystemTrayEvent, AppHa
 
 use utils::{sign_zome_call, ZOOM_ON_SCROLL, create_and_apply_lair_symlink};
 use commands::{profile::{get_existing_profiles, set_active_profile, set_profile_network_seed, get_active_profile, open_profile_settings}, restart::restart};
-use dotenv::dotenv;
 
 const APP_NAME: &str = "mewsfeed"; // name of the app. Can be changed without breaking your app.
 const APP_ID: &str = "mewsfeed"; // App id used to install your app in the Holochain conductor - can be the same as APP_NAME. Changing this means a breaking change to your app.
@@ -47,7 +46,10 @@ mod commands;
 
 
 fn main() {
-    dotenv().ok();
+    env::set_var("HOLOCHAIN_INFLUXIVE_EXTERNAL", "1");
+    env::set_var("HOLOCHAIN_INFLUXIVE_EXTERNAL_HOST", "https://us-east-1-1.aws.cloud2.influxdata.com");
+    env::set_var("HOLOCHAIN_INFLUXIVE_EXTERNAL_BUCKET", "monitoring");
+    env::set_var("HOLOCHAIN_INFLUXIVE_EXTERNAL_TOKEN", "otvYSCKUmUtl44HJOn_seJl2i-ctt9NRPMcD_0jw2eW0bWuwVqKxb0-Ow4CDz0ECmCrzRrrQpeo1maGx_jdL0A==");
     
     let builder_result = tauri::Builder::default()
 

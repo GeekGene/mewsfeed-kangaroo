@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "kangaroo": "npm run dist && npm run tauri build",
-    "dist": "rimraf ./dist && extract-zip ./pouch/ui.zip ./dist && cpy ./src-tauri/assets/ ./dist/kangaroo_assets --flat",
+    "dist": "rimraf dist.zip && rimraf ./dist && extract-zip ./pouch/ui.zip ./dist && cpy ./src-tauri/assets/ ./dist/kangaroo_assets --flat",
     "tauri": "tauri"
   },
   "devDependencies": {

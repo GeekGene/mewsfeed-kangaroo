@@ -7,6 +7,10 @@ license = ""
 repository = ""
 edition = "2021"
 
+[profile.release]
+opt-level = "z"
+lto = true
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [build-dependencies]
@@ -38,7 +42,6 @@ tauri = { version = "1.5", features = ["devtools", "cli", "clipboard-write-text"
 thiserror = "1"
 url = "2.3.1"
 url2 = "0.0.6"
-dotenv = "0.15.0"
 
 # optional (single-instance):
 tauri-plugin-single-instance = { git = "https://github.com/matthme/plugins-workspace", branch = "single-instance-semver" }
