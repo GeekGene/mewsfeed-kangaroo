@@ -1,6 +1,6 @@
-import { KANGAROO_CONFIG } from './const';
-import { breakingAppVersion } from './filesystem';
-import { app } from 'electron';
+// import { KANGAROO_CONFIG } from './const';
+// import { breakingAppVersion } from './filesystem';
+// import { app } from 'electron';
 
 export interface CliOpts {
   profile?: string;
@@ -98,9 +98,10 @@ export function validateArgs(args: CliOpts): RunOptions {
 }
 
 function defaultAppNetworkSeed() {
-  let networkSeed = `${KANGAROO_CONFIG.productName}-${breakingAppVersion()}`;
-  if (!app.isPackaged) {
-    networkSeed += '-dev';
-  }
-  return networkSeed;
+  // let networkSeed = `${KANGAROO_CONFIG.productName}-${breakingAppVersion()}`;
+  // if (!app.isPackaged) {
+  //   networkSeed += '-dev';
+  // }
+  // return networkSeed;
+  return '';
 }

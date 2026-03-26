@@ -16,7 +16,7 @@ export default defineConfig({
   iceUrls: ['stun:stun.cloudflare.com:3478', 'stun:stun.l.google.com:19302'],
   webhapp: {
     url: 'https://github.com/GeekGene/mewsfeed/releases/download/v0.14.0/mewsfeed.webhapp',
-    sha256: 'PLACEHOLDER_UPDATE_AFTER_MEWSFEED_RELEASE',
+    sha256: '555c86edb65497672001e5456cde5a25ea9630dca06879cc5449d4732893ecdf',
   },
   bins: {
     holochainVersion: '0.6.1-rc.4',

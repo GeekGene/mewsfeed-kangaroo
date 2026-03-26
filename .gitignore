@@ -80,3 +80,6 @@ typings/
 # Vite
 .vite/
 
+# Claude
+.claude/
+

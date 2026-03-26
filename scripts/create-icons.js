@@ -19,8 +19,14 @@ async function generateIcons() {
   const icnsOutPath = path.join(buildDir, 'icon.icns');
 
   if (!fs.existsSync(pngPath)) {
-    console.warn("WARNING: No icon.png found. If you're using the systray option, an icon.png (at least 256x256 pixel) is required to be provided at the root level of your webhapp's UI assets.");
-    return;
+    // Fall back to project-level icon if webhapp doesn't include one
+    const fallbackPath = path.join('assets', 'icon.png');
+    if (!fs.existsSync(fallbackPath)) {
+      console.warn("WARNING: No icon.png found. If you're using the systray option, an icon.png (at least 256x256 pixel) is required to be provided at the root level of your webhapp's UI assets or in the assets/ folder.");
+      return;
+    }
+    console.log('Using fallback icon from build/icon.png');
+    fs.cpSync(fallbackPath, pngPath);
   }
 
   fs.cpSync(pngPath, pngOutPath);
