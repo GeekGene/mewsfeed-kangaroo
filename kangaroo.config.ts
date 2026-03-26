@@ -1,36 +1,51 @@
 import { defineConfig } from './src/main/defineConfig';
 
 export default defineConfig({
-  appId: 'org.holochain.kangaroo-electron',
-  productName: 'Holochain Kangaroo Electron',
-  version: '0.2.3',
+  appId: 'org.geekgene.mewsfeed',
+  productName: 'Mewsfeed',
+  version: '0.14.0',
   macOSCodeSigning: false,
   windowsEVCodeSigning: false,
   fallbackToIndexHtml: true,
   autoUpdates: true,
   systray: true,
   passwordMode: 'password-optional',
+  bootstrapUrl: 'https://dev-test-bootstrap2.holochain.org/',
+  signalUrl: 'wss://dev-test-bootstrap2.holochain.org/',
+  relayUrl: 'https://use1-1.relay.n0.iroh-canary.iroh.link./',
+  iceUrls: ['stun:stun.cloudflare.com:3478', 'stun:stun.l.google.com:19302'],
+  webhapp: {
+    url: 'https://github.com/GeekGene/mewsfeed/releases/download/v0.14.0/mewsfeed.webhapp',
+    sha256: '555c86edb65497672001e5456cde5a25ea9630dca06879cc5449d4732893ecdf',
+  },
   bins: {
+    holochainVersion: '0.6.1-rc.4',
     holochain: {
-      version: '0.4.2-rc.1',
       sha256: {
         'x86_64-unknown-linux-gnu':
-          'df16f3eb4be09ce720996b4c11689408c635fd51d358a2e8ddefd601c3195bde',
+          'c0a2ba6266c38cc9ea0a5cad181f9473bf691663242415396e95ed13dcf38611',
+        'aarch64-unknown-linux-gnu':
+          '9ef9ddfa399d2bfdce8563555fcb10a6c2b863660876c69d065f02034033f320',
         'x86_64-pc-windows-msvc.exe':
-          'be1146216ef5ace20b020222dee33f136a65d313bcd95dd6bf8f51a663ba7c54',
-        'x86_64-apple-darwin': 'da7daa4450e4cae29684a8d513042ad388dbf26b7b9a2b5a6c570e46fc3668ea',
-        'aarch64-apple-darwin': '7f43c855a1244ecd29cc4d98bb7f209a561fd7480c1091e867335d4429e7c905',
+          'f3e88f844b96fbd39ad8ef991a473987c1ad09885ce407b76897162920bbb751',
+        'x86_64-apple-darwin':
+          'b89370b154a6c4fe0c1b2986469f1f1bf730b0df01fbb92461d474449a483fe3',
+        'aarch64-apple-darwin':
+          '5a2cd7f45b03177dd33901872d0ea012b7973085e348242dae86929d1577cfea',
       },
     },
     lair: {
-      version: '0.5.3',
       sha256: {
         'x86_64-unknown-linux-gnu':
-          '96a28b9b37c73ef46d8b5c56b9d799d558fd2fe77b41c577e2bcb37685a46396',
+          '82f725ef8b22109452661903e2b76d07ea7a4e7472b53bc8990cb245d9cda03a',
+        'aarch64-unknown-linux-gnu':
+          'e021ca9aa01f63a812800a8a35f8bce7d40500944870dc9cc520f69fbe5dfa55',
         'x86_64-pc-windows-msvc.exe':
-          '68b6453a19921072aac04dae52a4e94e725e7482005d2f54f907aec680e078de',
-        'x86_64-apple-darwin': 'a53bfb8e501431870b99243cbac24f6103d67f8be094930f174829bb249f34c4',
-        'aarch64-apple-darwin': '6b15d977408847ac977c2e060c7aab84a69e6e90c79390098dd40a6b75256e50',
+          'd7ad70c04d3f0503d0351b76ca2e7618dc6002c9e6d677214a36047e1664a73b',
+        'x86_64-apple-darwin':
+          '58521bff58d82dcc996a4da7173c8b3786ae30a7f4c8e1877e132fcbb043f499',
+        'aarch64-apple-darwin':
+          'f78b2e44e9b9269049ef301bf6484290ee9cf6c5c9a1985bdc7df3b91fd2f9f2',
       },
     },
   },

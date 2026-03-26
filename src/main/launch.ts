@@ -6,8 +6,6 @@ import { PasswordType } from './types';
 import { RunOptions } from './cli';
 import { initializeLairKeystore, launchLairKeystore } from './lairKeystore';
 import {
-  DEFAULT_BOOTSTRAP_SERVER,
-  DEFAULT_SIGNALING_SERVER,
   HAPP_APP_ID,
   HOLOCHAIN_BINARY,
   KANGAROO_CONFIG,
@@ -78,13 +76,16 @@ export async function launch(
     kangarooFs,
     runOptions.holochainPath ? runOptions.holochainPath : HOLOCHAIN_BINARY,
     password,
-    KANGAROO_CONFIG.bins.holochain.version,
+    KANGAROO_CONFIG.bins.holochainVersion,
     kangarooFs.conductorDir,
     kangarooFs.conductorConfigPath,
     lairUrl,
-    runOptions.bootstrapUrl ? runOptions.bootstrapUrl.toString() : DEFAULT_BOOTSTRAP_SERVER,
-    runOptions.signalingUrl ? runOptions.signalingUrl.toString() : DEFAULT_SIGNALING_SERVER,
-    runOptions.iceUrls ? runOptions.iceUrls : undefined
+    runOptions.bootstrapUrl ? runOptions.bootstrapUrl.toString() : KANGAROO_CONFIG.bootstrapUrl,
+    runOptions.signalUrl ? runOptions.signalUrl.toString() : KANGAROO_CONFIG.signalUrl,
+    runOptions.relayUrl ? runOptions.relayUrl.toString() : KANGAROO_CONFIG.relayUrl,
+    runOptions.iceUrls ? runOptions.iceUrls : KANGAROO_CONFIG.iceUrls,
+    runOptions.holochainRustLog,
+    runOptions.holochainWasmLog
   );
 
   // Install happ if necessary

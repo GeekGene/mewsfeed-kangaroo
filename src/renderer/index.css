@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700&family=Inter:wght@400;500;600&display=swap');
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
 html {
@@ -10,9 +13,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  /* to match the main window */
-  font-family: 'gilroyextrabold', Helvetica, sans-serif;
-  /* background: linear-gradient(90deg, #0edad3, #4622e3); */
+  font-family: 'Inter', Helvetica, sans-serif;
+  background: transparent;
 }
 
 .flex {
@@ -43,89 +45,149 @@ body {
 
 .splash-wrapper {
   display: flex;
-  flex-direction: row;
-}
-
-.splash-image-wrapper {
-  width: 320px;
-  height: 450px;
-  padding: 30px;
-  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e0e0e0;
   position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-}
-
-.splash-image-caption {
-  font-family: 'PlusJakartaSans-bold', Helvetica, sans-serif;
-  color: #ffffff;
-  font-size: 12px;
+  overflow: hidden;
 }
 
 .splash-content-wrapper {
   align-items: center;
-  margin-top: 30px;
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 30px 40px;
+  justify-content: center;
+  padding: 24px 40px;
+  gap: 4px;
+}
+
+.splash-brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.splash-logo {
+  width: 32px;
+  height: 32px;
+  transform: scaleX(-1);
 }
 
 .splash-product-name {
-  font-family: 'gilroyextrabold', Helvetica, sans-serif;
-  font-size: 40px;
-  color: #222222;
-  margin-bottom: 2px;
+  font-family: 'Syne', Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -0.05em;
+  color: #000000;
 }
 
 .splash-version {
-  font-family: 'gilroyextrabold', Helvetica, sans-serif;
-  font-size: 14px;
+  font-family: 'Inter', Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
   color: #898989;
-  margin-left: 2px;
+  text-align: center;
 }
 
 .splash-loading-message {
-  font-family: 'gilroyextrabold', Helvetica, sans-serif;
-  margin-top: 110px;
-  font-size: 18px;
-  color: #414141;
+  font-family: 'Inter', Helvetica, sans-serif;
+  font-weight: 500;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #FF5C00;
+  text-align: center;
 }
 
 .splash-description {
-  font-family: 'PlusJakartaSans-regular', Helvetica, sans-serif;
-  font-size: 14px;
+  font-family: 'Inter', Helvetica, sans-serif;
+  font-size: 13px;
   color: #585858;
-  width: 365px;
+  max-width: 380px;
 }
 
 .splash-license {
-  font-family: 'PlusJakartaSans-bold', Helvetica, sans-serif;
-  font-size: 12px;
-  color: #898989;
-  position: absolute;
-  bottom: 3px;
-  left: 5px;
+  font-family: 'Inter', Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 10px;
+  color: #a0a0a0;
+  padding: 8px 0;
+  text-align: center;
+}
+
+.splash-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 12px;
+  gap: 4px;
+}
+
+.splash-bottom img {
+  width: 160px;
+  opacity: 0.5;
+}
+
+h2 {
+  font-family: 'Syne', Helvetica, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  font-size: 18px;
+  margin: 8px 0;
+}
+
+.content {
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .pw-input {
-  height: 30px;
-  width: 200px;
-  border-radius: 5px;
-  font-size: 16px;
+  height: 36px;
+  width: 220px;
+  border-radius: 8px;
+  border: 1px solid #c2c2c2;
+  font-size: 14px;
+  font-family: 'Inter', Helvetica, sans-serif;
+  padding: 0 10px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.pw-input:focus {
+  border-color: #FF5C00;
 }
 
 button {
-  height: 26px;
-  min-width: 80px;
+  height: 34px;
+  min-width: 90px;
   cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  background: #FF5C00;
+  color: #ffffff;
+  font-family: 'Inter', Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #e05000;
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: default;
 }
 
 .warning {
   color: rgb(193, 0, 0);
-  font-size: 14px;
+  font-size: 13px;
   min-height: 16px;
 }
 
@@ -135,6 +197,30 @@ button {
 
 .previous-step-btn {
   position: fixed;
-  top: 6px;
-  left: 6px;
+  top: 12px;
+  left: 12px;
+  background: transparent;
+  color: #666;
+  min-width: auto;
+  height: auto;
+  font-size: 12px;
+}
+
+.previous-step-btn:hover {
+  background: transparent;
+  color: #000;
+}
+
+#close-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 24px;
+  opacity: 0.4;
+  transition: opacity 0.2s;
+}
+
+#close-btn:hover {
+  opacity: 1;
 }

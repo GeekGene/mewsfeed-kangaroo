@@ -49,7 +49,7 @@ export const createHappWindow = async (
       if (!relativeFilePath.endsWith('index.html') && !fallbackToIndexHtml) {
         return net.fetch(url.pathToFileURL(absoluteFilePath).toString());
       } else {
-        const indexHtmlResponse = await net.fetch(url.pathToFileURL(absoluteFilePath).toString());
+        const indexHtmlResponse = await net.fetch(url.pathToFileURL(path.join(uiSource.path, 'index.html')).toString());
         const content = await indexHtmlResponse.text();
         let modifiedContent = content.replace(
           '<head>',
@@ -213,13 +213,13 @@ export const createSplashWindow = (type: SplashScreenType): BrowserWindow => {
   }
 
   const splashWindow = new BrowserWindow({
-    height: 450,
-    width: 800,
+    height: 550,
+    width: 520,
     center: true,
     resizable: false,
     frame: false,
     show: false,
-    backgroundColor: '#fbf9f7',
+    transparent: true,
     webPreferences: {
       preload: path.join(__dirname, '../preload/splashscreen.js'),
     },
